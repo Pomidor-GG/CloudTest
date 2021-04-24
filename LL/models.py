@@ -73,10 +73,17 @@ from django.dispatch.dispatcher import receiver
 
 @receiver(pre_delete, sender=Post)
 def myfield_delete(sender, instance, **kwargs):
+    print(instance.image.name)
+    print(type(instance.image.name))
+
+    for i in glob.glob(os.path.join('media\images', str(instance.image.name).split("/")[-1] + '*')):
+        print(i)
+        os.remove(i)
+
     if instance.image.name:
         instance.image.delete(False)
-    for i in glob.glob(os.path.join('media\images', str(instance.image.name).split("/")[-1] + '*')):
-        os.remove(i)
+
+
 
     # def delete(self, *args, **kwargs):
     #     name = self.image.name
