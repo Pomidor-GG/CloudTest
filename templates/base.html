@@ -1,0 +1,84 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Название{% endblock %}</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg navbar-light ">
+                <a class="navbar-brand" href="/">stupIĐ</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+
+                        <li class="nav-item"><a class="nav-link" href="#">Lifestyle</a></li>
+
+                        <li class="nav-item"><a class="nav-link" href="{% url 'list_of_works_url' %}">Photo</a></li>
+
+                        <li class="nav-item"><a class="nav-link" href="#">Music</a></li>
+
+                        <li class="nav-item"><a class="nav-link" href="#">Travel</a></li>
+
+                    </ul>
+
+                </div>
+            </nav>
+        </div>
+    </div>
+
+</header>
+
+    <section class="mt-5" style="height: auto">
+        <div class="container">
+            <div class="row">
+                {% block content %}
+                <div class="col-12">
+                    <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, odit, perferendis. Adipisci
+                        alias amet assumenda autem dolorum eius facilis impedit ipsa itaque iusto modi mollitia, neque
+                        odit pariatur, qui quis quod reprehenderit repudiandae sit unde? A adipisci, consectetur eius
+                        hic incidunt, inventore itaque magni maiores necessitatibus, nesciunt odit quam ratione
+                        recusandae tempora voluptates. Alias aspernatur debitis deleniti dolorum expedita explicabo iste
+                        laudantium molestias numquam provident, quidem suscipit! Amet assumenda dicta doloremque,
+                        dolorum, ducimus eos et explicabo in iusto laborum natus nostrum optio porro quam, sit. Ab
+                        aspernatur blanditiis cum deserunt ducimus, et in maiores modi neque nostrum pariatur sed
+                        tenetur?</h5>
+                </div>
+                {% endblock %}
+            </div>
+        </div>
+    </section>
+
+
+</body>
+
+
+
+{% block foot %}
+    <footer>
+        <div class="col-12" style="height: 45px; background-color: #767777">
+            <h3 class="text-light text-center pt-2">Footer</h3>
+        </div>
+    </footer>
+{% endblock %}
+<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</html>
